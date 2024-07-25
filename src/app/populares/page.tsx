@@ -4,23 +4,20 @@ import { useEffect, useState, useRef } from 'react';
 import { Moviesdb } from "@/utils/Moviesdb";
 import Link from 'next/link';
 
-type Movie = {
-    id: number;
-    title: string;
-    poster_path: string;
-  };
+
 
 function Moviesweb() {
-    const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState([]);
 
-    useEffect(() => {
-      async function getMovies() {
-        const popularMovies = await Moviesdb();
-        setMovies(popularMovies);
-      }
-      getMovies();
-    }, []);
+  useEffect(() => {
+    async function getMovies() {
+      const popularMovies = await Moviesdb();
+      setMovies(popularMovies);
+    }
+    getMovies();
+  }, []);
 
+  
 
   return (
     <div className='px-3  w-full max-w-5xl m-auto'>
@@ -31,8 +28,12 @@ function Moviesweb() {
       
         <div className='flex flex-wrap justify-center gap-5'>
           {movies.map(movie => (
-            <ul key={movie.id} className='flex w-64'>
-                <li >
+             // @ts-ignore
+             
+            <ul key={movie.id} className='flex w-40 md:w-64'>
+                
+                <li > 
+                    {/* @ts-ignore */}
                     <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} className='w-full h-auto object-cover rounded-lg'  />
                 </li>
             </ul>
