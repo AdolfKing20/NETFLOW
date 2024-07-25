@@ -1,20 +1,25 @@
+/* eslint-disable @next/next/no-img-element */
 "use client"
 import { useEffect, useState, useRef } from 'react'; 
 import { Moviesdb } from "@/utils/Moviesdb";
 import Link from 'next/link';
 
+type Movie = {
+    id: number;
+    title: string;
+    poster_path: string;
+  };
+
 function Moviesweb() {
-  const [movies, setMovies] = useState([]);
-  const carouselRef = useRef(null); 
+    const [movies, setMovies] = useState<Movie[]>([]);
 
-  useEffect(() => {
-    async function getMovies() {
-      const popularMovies = await Moviesdb();
-      setMovies(popularMovies);
-    }
-    getMovies();
-  }, []);
-
+    useEffect(() => {
+      async function getMovies() {
+        const popularMovies = await Moviesdb();
+        setMovies(popularMovies);
+      }
+      getMovies();
+    }, []);
 
 
   return (
