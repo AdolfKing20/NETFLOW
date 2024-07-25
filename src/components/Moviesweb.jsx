@@ -1,6 +1,7 @@
 "use client"
 import { useEffect, useState, useRef } from 'react'; 
 import { Moviesdb } from "@/utils/Moviesdb";
+import Link from 'next/link';
 
 function Moviesweb() {
   const [movies, setMovies] = useState([]);
@@ -22,8 +23,11 @@ function Moviesweb() {
   };
 
   return (
-    <div className='px-3'>
-      <h1 className='text-2xl text-slate-200 font-semibold py-4'>Populares</h1>
+    <div className='px-3  w-full max-w-7xl m-auto'>
+      <div className='flex justify-between items-end py-4 '>
+      <h1 className='text-2xl text-slate-200 font-semibold '>Populares</h1>
+      <Link href={"/populares"} className='text-red-600'>Ver Todo</Link>
+      </div>
       <div className='relative overflow-hidden w-full'>
         <button 
           className='absolute hidden md:block left-0 top-[50%] h-full w-9 transform -translate-y-1/2 bg-gray-800/30 text-white rounded-tl-xl rounded-bl-xl p-2  z-10'
