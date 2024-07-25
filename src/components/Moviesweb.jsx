@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react'; 
 import { Moviesdb } from "@/utils/Moviesdb";
 import Link from 'next/link';
+import SearchMovie from "@/components/SearchMovie"
 
 function Moviesweb() {
   const [movies, setMovies] = useState([]);
@@ -25,6 +26,7 @@ function Moviesweb() {
 
   return (
     <div className='px-3  w-full max-w-7xl m-auto'>
+      <SearchMovie />
       <div className='flex justify-between items-end py-4 '>
       <h1 className='text-2xl text-slate-200 font-semibold '>Populares</h1>
       <Link href={"/populares"} className='text-red-600'>Ver Todo</Link>
